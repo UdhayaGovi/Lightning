@@ -1,0 +1,10 @@
+public class OpportunityListController {
+    /*Used in the Lightning Component OpportynityList*/
+    /*Method returns list of opportunities*/
+	@AuraEnabled
+    public static List<Opportunity> getOpportunities(){
+        return [SELECT name, ExpectedRevenue, Account.Name, AccountId, StageName, CloseDate FROM Opportunity];
+    
+    }
+
+}

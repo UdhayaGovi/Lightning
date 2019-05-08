@@ -1,0 +1,24 @@
+<aura:component controller="OpportunityListController">
+    
+    <!--Declare Attribute to store Opportunity List,column headings,selectedlist--> 
+    <aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="myselecteddata" type="Object"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+        
+    <lightning:card footer="Card Footer" title="List of Opportunities">
+        <!--For button Download Selected As CSV-->
+        <aura:set attribute="actions">
+		    <lightning:button variant="brand" label="Download Selected As CSV" title="Download CSV" iconName="utility:download" iconPosition="left" onclick="{! c.downloadAsCSV }" />
+        </aura:set>
+            
+        <!--Display the list of opportunities--> 
+		<lightning:datatable 
+            keyField="Id"
+            data="{! v.mydata }"
+            columns="{! v.mycolumns }"
+            onrowselection="{! c.getSelectedRows }"/>
+        
+    </lightning:card>
+
+</aura:component>

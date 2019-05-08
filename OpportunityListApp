@@ -1,0 +1,5 @@
+<aura:application extends="force:slds" >
+    <!--Lightning Application-->
+    <!--Calls Lightning Component OpportunityList--> 
+    <c:DataTableListSelection/>
+</aura:application>
